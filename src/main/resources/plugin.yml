@@ -1,0 +1,23 @@
+name: MyFirstPlugin
+version: '1.0-SNAPSHOT'
+main: org.gaa.myFirstPlugin.MyFirstPlugin
+api-version: '1.21'
+
+commands:
+    giveKnockbackstick:
+        description: Gives the player a knockback stick and adds the windpressure tag.
+        usage: /giveknockbackstick
+
+    sw:
+        description: Spawns 10 wither skeletons
+        usage: /sw
+
+    wither:
+        description: "Manages wither skeletons and scoreboard visibility."
+        usage: "/wither <start|stop>"
+        aliases: [ "wd" ]
+
+    grapplinghook:
+        description: "Use the grappling hook with a fishing rod."
+        usage: "/grapplinghook <give|enable|disable>"
+        aliases: [ "gp" ]
