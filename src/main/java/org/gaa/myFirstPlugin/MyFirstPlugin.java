@@ -21,10 +21,10 @@ public final class MyFirstPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
         getServer().getPluginManager().registerEvents(new Humanwave(this), this);
         getServer().getPluginManager().registerEvents(new witheritem(), this);
-        getServer().getPluginManager().registerEvents(new GrapplingHook(this),this);
-        getServer().getPluginManager().registerEvents(new JustEasterEgg(this),this);
-
-        // Ensure only one instance of WitherHealth is created
+        getServer().getPluginManager().registerEvents(new GrapplingHook(this), this);
+        getServer().getPluginManager().registerEvents(new JustEasterEgg(this), this);
+        getServer().getPluginManager().registerEvents(new RandomDeathMessagePlugin(this), this);  // RandomDeathMessagePlugin 등록
+        getServer().getPluginManager().registerEvents(new TeamChatPlugin(this), this);
         new WitherHealth(this);
 
         // Command registration checks (if necessary)
