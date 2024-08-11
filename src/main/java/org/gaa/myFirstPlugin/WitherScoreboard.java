@@ -98,7 +98,7 @@ public class WitherScoreboard implements CommandExecutor {
                     // 스코어보드에 남은 위더 스켈레톤 수 표시
                     Score score = objective.getScore("§7남은 스켈레톤의 수");
                     score.setScore(currentWitherSkeletonCount);
-                    //a
+                    //aaa
                     for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                         onlinePlayer.setScoreboard(scoreboard);
                     }
