@@ -22,7 +22,7 @@ public class WitherScoreboard implements CommandExecutor {
     private Scoreboard scoreboard;
     private Objective objective;
     private boolean display = false; // 보스바 및 스코어보드 표시 여부
-    private int initialWitherSkeletonCount = 0; // 명령어 입력 시의 초기 위더 스켈레톤 수
+    private int initialWitherSkeletonCount = 0; // 초기 위더 스켈레톤 수
 
     public WitherScoreboard(JavaPlugin plugin) {
         this.plugin = plugin;
@@ -42,8 +42,15 @@ public class WitherScoreboard implements CommandExecutor {
 
                 if (action.equals("start")) {
                     if (!display) {
-                        startDisplayingBossBarAndScoreboard(); // 보스바 및 스코어보드 표시
-                        player.sendMessage("위더 스켈레톤 수 표시가 활성화되었습니다.");
+                        // 명령어 실행 시에만 위더 스켈레톤 수 확인
+                        initialWitherSkeletonCount = calculateWitherSkeletonCount();
+
+                        if (initialWitherSkeletonCount > 0) {
+                            startDisplayingBossBarAndScoreboard(); // 보스바 및 스코어보드 표시
+                            player.sendMessage("위더 스켈레톤 수 표시가 활성화되었습니다.");
+                        } else {
+                            player.sendMessage("Swither 태그를 가진 위더 스켈레톤이 없습니다.");
+                        }
                     } else {
                         player.sendMessage("위더 스켈레톤 수 표시가 이미 활성화되어 있습니다.");
                     }
@@ -70,8 +77,6 @@ public class WitherScoreboard implements CommandExecutor {
 
     private void startDisplayingBossBarAndScoreboard() {
         if (!display) {
-            initialWitherSkeletonCount = calculateWitherSkeletonCount(); // 초기 위더 스켈레톤 수 계산
-
             bossBar = Bukkit.createBossBar("위더 스켈레톤 수", BarColor.RED, BarStyle.SOLID);
 
             for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
@@ -98,7 +103,7 @@ public class WitherScoreboard implements CommandExecutor {
                     // 스코어보드에 남은 위더 스켈레톤 수 표시
                     Score score = objective.getScore("§7남은 스켈레톤의 수");
                     score.setScore(currentWitherSkeletonCount);
-                    //aaa
+
                     for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                         onlinePlayer.setScoreboard(scoreboard);
                     }
