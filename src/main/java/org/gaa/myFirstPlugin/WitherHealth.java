@@ -18,6 +18,7 @@ public class WitherHealth {
     public WitherHealth(JavaPlugin plugin) {
         this.plugin = plugin;
         startTask();
+
     }
 
     private void startTask() {
