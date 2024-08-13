@@ -36,7 +36,7 @@ public class TeamChatPlugin implements Listener {
             ChatColor messageColor = ChatColor.WHITE;
 
             // 포맷 설정: 팀 이름과 대괄호 색상 적용, 메시지 색상 구별
-            String formattedMessage = teamDisplayNameColored + " " + player.getDisplayName() + ": " + messageColor + event.getMessage();
+            String formattedMessage = teamDisplayNameColored + "" + player.getDisplayName() + ": " + messageColor + event.getMessage();
 
             // 채팅 포맷 설정
             event.setFormat(formattedMessage);

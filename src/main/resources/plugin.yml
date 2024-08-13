@@ -21,3 +21,8 @@ commands:
         description: "Use the grappling hook with a fishing rod."
         usage: "/grapplinghook <give|enable|disable>"
         aliases: [ "gp" ]
+
+    curestick:
+        description: "지정된 플레이어에게 큐어의 스틱을 지급합니다."
+        usage: "/curestick <플레이어 이름>"
+        aliases: [ "cu" ]
